@@ -1,3 +1,11 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+ready = ->
+  $eventModal = $('.event-modal')
+
+  $('#calendar').fullCalendar
+    defaultView: 'agendaWeek'
+    editable: true
+    selectable: true
+    select: (start, end, jsEvent, view) ->
+      $eventModal.modal 'show'
+
+$(document).on 'ready page:load', ready
