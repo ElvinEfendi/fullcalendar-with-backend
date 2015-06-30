@@ -1,0 +1,7 @@
+$eventModal = $('.event-modal');
+<% if @meta_event.errors.messages.present? %>
+  $eventModal.find('.alert.alert-danger').html('<%= @meta_event.errors.full_messages.join("; ") %>').removeClass('hide');
+<% else %>
+  $eventModal.modal('hide');
+  $('#calendar').fullCalendar('refetchEvents');
+<% end %>
