@@ -9,6 +9,7 @@ ready = ->
     defaultView: 'agendaWeek'
     editable: true
     selectable: true
+    events: '/fetch'
     select: (start, end, jsEvent, view) ->
       event =
         starts_at: start

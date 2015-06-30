@@ -2,6 +2,11 @@ class EventsController < ApplicationController
   def index
   end
 
+  def fetch
+    events = MetaEvent.events_for_week [ Time.parse(params[:start]), Time.parse(params[:end]) ]
+    render json: events
+  end
+
   def create
     @meta_event = MetaEvent.new event_params
     @meta_event.save
